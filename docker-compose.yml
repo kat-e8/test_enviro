@@ -6,6 +6,9 @@ services:
       - 9088:8088
     volumes:
       - gateway-data:/usr/local/bin/ignition/data
+      - ./gw-init/gateway.gwbk:/restore.gwbk
+      - ./gw-init/gateway-uuid.txt:/usr/local/bin/ignition/data/.uuid
+      - ./gw-init/gateway-metro-keystore:/usr/local/bin/ignition/data/local/metro-keystore
     networks:
       - gateway-network
     environment:
@@ -15,6 +18,7 @@ services:
     command: >
       -n gateway
       -m 2048
+      -r /restore.gwbk
   db:
     image: mariadb:10.10.2
     ports:
