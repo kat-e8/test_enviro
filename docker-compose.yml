@@ -1,0 +1,9 @@
+services:
+  gateway:
+    image:
+    hostname:
+    ports:
+    volumes:
+    command: >
+networks:
+volumes:
