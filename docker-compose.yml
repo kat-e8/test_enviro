@@ -1,6 +1,9 @@
 services:
   gateway:
-    image: inductiveautomation/ignition:8.1.45
+    build:
+      context: gw-build
+      args:
+        IGNITION_VERSION: 8.1.46
     hostname: gateway
     ports:
       - 9088:8088
